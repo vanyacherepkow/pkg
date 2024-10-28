@@ -104,3 +104,7 @@ func (p Publisher) IsPublished(msg interface{}) bool {
 
 	return isPublished
 }
+
+func NewPublisher(ctx context.Context, cfg *RabbitMQConfig, conn *amqp.Connection) IPublisher {
+	return &Publisher{ctx: ctx, cfg: cfg, conn: conn}
+}
